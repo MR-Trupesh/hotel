@@ -1,15 +1,13 @@
-const { default: mongoose } = require('mongoose');
-const mongose = require('mongoose');
+const mongoose = require('mongoose');
 require('dotenv').config();
-//const mongoURL = 'mongodb+srv://ghevariyatrupesh4:Trupesh4445@cluster0.udpvnxf.mongodb.net/'
+
 const mongosURL = process.env.MONGODB_URL;
 
-mongoose.connect(mongoURL, {
-    useNewUrlparser: true,
-    useUnifiedTOpology: true
+mongoose.connect(mongosURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
-
-const db = mongose.connection;
+const db = mongoose.connection;
 
 db.on('connected', () => {
     console.log('MongoDB connected');
